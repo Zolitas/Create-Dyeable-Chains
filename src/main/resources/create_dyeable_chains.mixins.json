@@ -4,6 +4,9 @@
   "package": "de.zolitas.createdyeablechains.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ChainConveyerBlockEntityMixin",
+    "ChainConveyorInteractionHandlerMixin",
+    "ChainConveyorRendererMixin"
   ],
   "client": [
   ],

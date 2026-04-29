@@ -9,8 +9,10 @@ import org.slf4j.Logger;
 @Mod(CreateDyeableChains.MOD_ID)
 public class CreateDyeableChains {
   public static final String MOD_ID = "create_dyeable_chains";
+  public static final String PACKET_VERSION = "1";
   private static final Logger LOGGER = LogUtils.getLogger();
 
   public CreateDyeableChains(IEventBus modEventBus, ModContainer modContainer) {
+    ChainDyePacket.register();
   }
 }
