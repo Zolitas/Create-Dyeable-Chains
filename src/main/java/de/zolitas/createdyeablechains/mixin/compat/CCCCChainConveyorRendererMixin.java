@@ -1,10 +1,10 @@
-package de.zolitas.createdyeablechains.mixin;
+package de.zolitas.createdyeablechains.mixin.compat;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.reggarf.mods.create_colored_chain_conveyor.blockEntity.renderers.CCCCChainConveyorRenderer;
 import com.simibubi.create.content.kinetics.chainConveyor.ChainConveyorBlockEntity;
-import com.simibubi.create.content.kinetics.chainConveyor.ChainConveyorRenderer;
 import com.simibubi.create.foundation.render.RenderTypes;
 import de.zolitas.createdyeablechains.ClientChainDyeUtils;
 import de.zolitas.createdyeablechains.MixedChainConveyor;
@@ -18,9 +18,12 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import static com.simibubi.create.content.kinetics.chainConveyor.ChainConveyorRenderer.CHAIN_LOCATION;
 
-@Mixin(ChainConveyorRenderer.class)
-public class ChainConveyorRendererMixin {
-  @Redirect(method = "renderChains", at = @At(value = "INVOKE", target = "Lcom/simibubi/create/content/kinetics/chainConveyor/ChainConveyorRenderer;renderChain(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;FFIIZ)V"))
+/**
+ * This is a duplicate of {@link de.zolitas.createdyeablechains.mixin.ChainConveyorRendererMixin}
+ */
+@Mixin(CCCCChainConveyorRenderer.class)
+public class CCCCChainConveyorRendererMixin {
+  @Redirect(method = "renderChains", at = @At(value = "INVOKE", target = "Lcom/reggarf/mods/create_colored_chain_conveyor/blockEntity/renderers/CCCCChainConveyorRenderer;renderChain(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;FFIIZ)V"))
   private void renderChain(PoseStack ms, MultiBufferSource buffer, float animation, float length,
                            int light1, int light2, boolean far,
                            @Local(argsOnly = true) ChainConveyorBlockEntity chainConveyor,

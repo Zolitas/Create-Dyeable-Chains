@@ -3,7 +3,9 @@
   "minVersion": "0.8",
   "package": "de.zolitas.createdyeablechains.mixin",
   "compatibilityLevel": "JAVA_21",
+  "plugin": "de.zolitas.createdyeablechains.MixinPlugin",
   "mixins": [
+    "compat.CCCCChainConveyorRendererMixin",
     "ChainConveyerBlockEntityMixin",
     "ChainConveyorInteractionHandlerMixin",
     "ChainConveyorRendererMixin"
